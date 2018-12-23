@@ -1,24 +1,20 @@
+
 var tree;
 
 function setup() {
-    noCanvas();
+  createCanvas(window.innerWidth, window.innerHeight);
+  background(0);
+  tree = new Tree();
+  for (var i = 0; i < 40; i++) {
+    tree.addValue(floor(random(0, 70)));
+  }
+  console.log(tree);
+  tree.traverse();
 
-    tree = new Tree();
-
-    for(var i = 0; i < 100; i++) {
-        tree.addValue(floor(random(0,1000)));
-
-    }
-    
-    console.log(tree);
-    tree.traverse();
-
+  var result = tree.search(10);
+  if (result == null) {
+    console.log('not found');
+  } else {
+    console.log(result);
+  }
 }
-
-
-function draw() {
-    background(0);
-
-}
-
-
